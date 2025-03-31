@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #073763">
+  <div class="container mt-4" style="width: 50%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+   border-radius: 8px; background-color: #fff;padding: 10px;" >
+    <div class="mb-3">
+      <label for="inputText" class="form-label">Banner Title</label>
+      <input type="text" class="form-control" [(ngModel)]="bannerTitle"  id="inputText" style="border: 1px solid #073763; outline: none;" 
+       onFocus="this.style.borderColor='#86b7fe'; this.style.boxShadow='0 0 0 0.25rem rgba(13, 110, 253, 0.25)'" 
+       onBlur="this.style.borderColor='#ced4da'; this.style.boxShadow='none'" >
+    </div>
+    <label for="inputText" >Banner Preview</label>
+
+    <!-- Show skeleton loader when loading -->
+<div *ngIf="isLoading" class="mb-3 mt-2 d-flex" style="width: 100%;border: 1px solid #ced4da;padding: 10px;background-color: #FFFFF0;">
+  <div class="placeholder-glow" style="width: 79px;height: 79px;">
+    <span class="placeholder w-100 h-100 rounded"></span>
+  </div>
+  <div class="d-flex justify-content-between align-items-center w-100 ms-3">
+    <div style="width: 60%;">
+      <h5 class="placeholder-glow mb-0">
+        <span class="placeholder col-12"></span>
+      </h5>
+    </div>
+    <div>
+      <span class="placeholder rounded" style="width: 110px; height: 30px;"></span>
+    </div>
+  </div>
+</div>
+
+    <div class="mb-3 mt-2 d-flex" *ngIf="!isLoading" style="width: 100%;border: 1px solid #ced4da;padding: 10px;background-color: #FFFFF0;" >
+      <div style="width: 79px;height: 79px;background-color: grey;border-radius: 5px;">
+        <img src="	https://app.socxo.io/assets/images/banner-placeholder-logo.svg" alt="Banner Preview" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
+        <div style="margin-left: 10px;max-width: 500px;">
+          <h5 style="word-wrap: break-word; overflow-wrap: break-word;">{{bannerDescription}}</h5>
+       </div>
+       <div>
+        <div>
+          <button class="btn btn-primary" style="height: 30px;min-width: 110px;padding-bottom: 30px;background-color: #FF7F50;">{{bannerButton}}</button>
+        </div>
+         <!-- <button class="btn btn-primary" style="height: 30px;min-width: 110px;">test</button> -->
+       </div>
+      </div>
+    </div>
+    <div class="mt-5 d-flex justify-content-end">
+      <button class="btn btn-primary" 
+      (click)="generateBanner()"
+      [disabled]="!bannerTitle"
+      [ngStyle]="{'opacity': !bannerTitle ? '0.5' : '1'}"
+      >Generate With AI</button>
+    </div>
+    
+  </div>
+</div>
