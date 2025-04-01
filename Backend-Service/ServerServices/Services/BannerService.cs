@@ -20,7 +20,7 @@ public class BannerService:IBannerService
         string endpoint = configs["endPoint"];
         string apiKey = configs["apiKey"];
         var builder = Kernel.CreateBuilder();
-        builder.AddAzureOpenAIChatCompletion("gpt-4o", endpoint, apiKey);
+        builder.AddAzureOpenAIChatCompletion("gpt-4o-mini",endpoint,apiKey);
         builder.Services.AddAzureOpenAITextToImage("dall-e-3",endpoint,apiKey);
         /*builder.Plugins.AddFromType<BannerPlugin>();*/
         _kernel = builder.Build();
